@@ -1,0 +1,13 @@
+<!--
+    Recebe label, name, value e placeholder
+    Exemplo:
+        {{> input_porcentagem name="" label="" value="" placeholder="" min=1 max=5}}
+-->
+<template name="input_porcentagem">
+    <div style="padding: 5px 0">
+        <label class="form-label" for="{{name}}">{{label}}</label>
+        <input style="background-color: #fff" class="form-control input" id="{{name}}" name="{{name}}" type="text" value="{{value}}" placeholder="{{placeholder}}">
+        <div id="alert_{{name}}" class="alert alert-danger" style="margin: 5px 0px 0px; line-height: 1em; display: none">
+        </div>
+    </div>
+</template>

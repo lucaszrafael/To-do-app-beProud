@@ -1,0 +1,33 @@
+<template name="campos_endereco">
+    <style>
+
+    </style>
+    <div style="margin-bottom: 10px">
+        <div>
+            <div class="coluna_dupla" style="padding-right: 5px;">
+                {{> input_text name="cep" label="CEP*" placeholder="000-00000" value=cep min=9 max=9}}
+            </div>
+            <div class="coluna_dupla" style="padding-left: 5px">
+                {{> input_text name="bairro" label="Bairro*" placeholder="Informe o bairro" value=bairro min=5 max=50}}
+            </div>
+        </div>
+
+        <div class="">
+            {{> input_text name="logradouro" label="Logradouro*" placeholder="Informe a rua, avenida..." value=logradouro min=5}}
+        </div>
+        <div>
+            {{> input_text name="numero_endereco" label="Número*" placeholder="Informe o número" value=numero_endereco min=1}}
+        </div>
+        <div>
+            {{> input_text name="complemento_endereco" label="Complemento" placeholder="Informe a rua, avenida..." value=complemento_endereco}}
+        </div>
+        <div>
+            <div class="coluna_dupla" style="padding-right: 5px;">
+                {{> input_select name="estado" label="Estado*" options=estadoOptions selectedOption=estado}}
+            </div>
+            <div class="coluna_dupla" style="padding-left: 5px">
+                {{> input_select name="cidade" label="Cidade*" options=cidadeOptions selectedOption=cidade}}
+            </div>
+        </div>
+    </div>
+</template>

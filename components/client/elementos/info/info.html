@@ -1,0 +1,31 @@
+<template name="elem_info">
+    <style>
+        .elem_info_default{
+            border-radius: 5px;
+            background-color: #eee;
+            padding: 10px 20px;
+            display: inline-block;
+        }
+        .elem_info_default{
+            margin-right: 10px;
+        }
+        .info_link,.info_link:hover{
+            text-decoration: none;
+        }
+    </style>
+    {{#if link}}
+        <a class="info_link" href="{{link}}">
+            {{> estrutura_elem_info}}
+        </a>
+    {{else}}
+        {{> estrutura_elem_info}}
+    {{/if}}
+
+</template>
+
+<template name="estrutura_elem_info">
+    <div class="elem_info_default">
+        <div style="font-weight: bold; text-transform: uppercase">{{titulo}}</div>
+        <div style="text-transform: {{capitalize}}">{{info}}</div>
+    </div>
+</template>

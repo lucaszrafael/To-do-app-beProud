@@ -1,0 +1,12 @@
+import '/client/layouts/interno/layout_interno.js'
+import '/client/layouts/externo/layout_externo.js'
+
+import '/routes/cadastro.js'
+import '/routes/categorias/categoria.js'
+import '/routes/home.js'
+import '/routes/login.js'
+import '/routes/tarefas/tarefa.js'
+import '/routes/tarefas/cadastrar_tarefa.js'
+import '/routes/tarefas/editar_tarefa.js'
+import '/routes/categorias/editar_categoria.js'
+import '/routes/tarefas/anotacao.js'

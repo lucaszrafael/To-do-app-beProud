@@ -1,0 +1,80 @@
+<!--
+
+    {{> gera_form formConfig}}
+
+    Gera um formulário recebendo apenas um objeto, contendo todas as informações atreladas a ele
+
+    Regras
+        Informar a posição do campo
+        Informar o tipo do campo
+        Informar o que cada campo pede
+        Informar a validação personalizada de cada campo
+        Informar validações padrões, como e-mail, data e horario, string, número.
+        Pode informar título, subtítulo e espaçadores
+        Informa se o campo ficará em um subgrupo de colunas para permitir que mais de um campo fique em apenas uma linha
+        Todo Usar o esquema de Hooks para validar o formulário apenas após determinado evento
+-->
+<template name="gera_form">
+    <div>
+        <form id="{{formId}}" class="form" action="">
+        {{#each fields}}
+            <!-- Se o campo for de texto simples -->
+            {{#if text}}
+                {{> input_text this}}
+            {{/if}}
+            {{#if data}}
+                {{> input_data this}}
+            {{/if}}
+            {{#if price}}
+                {{> input_price this}}
+            {{/if}}
+            <!-- Se o campo for de password -->
+            {{#if password}}
+                {{> input_password this}}
+            {{/if}}
+            <!-- Se o campo for de email -->
+            {{#if email}}
+                {{> input_email this}}
+            {{/if}}
+            <!-- Se o campo for de email -->
+            {{#if phone}}
+                {{> input_phone this}}
+            {{/if}}
+            <!-- Se o campo for text area -->
+            {{#if textarea}}
+                {{> input_textarea this}}
+            {{/if}}
+            {{#if file}}
+                {{> input_upload this}}
+            {{/if}}
+            {{#if select}}
+                {{> input_select this}}
+            {{/if}}
+            {{#if radio}}
+                {{> radio_input this}}
+            {{/if}}
+            {{#if checkbox}}
+                {{> check_input this}}
+            {{/if}}
+            {{#if cep}}
+                {{> input_cep this}}
+            {{/if}}
+            <!-- Se o campo for uma área HTML recebe o id de um template-->
+            {{#if html_area}}
+                {{> form_html_area this}}
+            {{/if}}
+        {{/each}}
+        {{! Se tiver passado botões no objeto do Form, imprime eles}}
+        <div style="margin-top: 10px; text-align: right">
+        {{#each buttons}}
+            <button id="{{id}}" type="{{type}}" class="btn btn-{{class}}" style="{{style}}">{{label}}</button>
+
+            {{else}} {{! Caso contrário apenas imprime um botão de submissão}}
+            <div style="text-align: right">
+                <button style="margin: 10px 0; text-transform: uppercase; width: {{btn_width}}" class="btn btn-primary" type="submit">{{btn_label}}</button>
+            </div>
+        {{/each}}
+        </div>
+        </form>
+    </div>
+</template>

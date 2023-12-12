@@ -1,0 +1,26 @@
+<template name="categoria">
+    <style>
+        #btn_editar, #btn_remover {
+            width: 25px;
+            height: 25px;
+            cursor: pointer;
+        }
+        #btn_editar{
+            margin-right: 10px;
+        }
+    </style>
+    <h1>{{categoria.titulo}}</h1>
+    <div class="btn_area">
+        <img id="btn_editar" src="/editar.png" alt="">
+        <img id="btn_remover" src="/remover.png" alt="">
+    </div>
+    <div>
+        {{#each tarefas}}
+            <div data-id="{{_id}}" class="tarefa">
+                {{titulo}}
+            </div>
+            {{else}}
+            <p>Nenhuma tarefa associada.</p>
+        {{/each}}
+    </div>
+</template>

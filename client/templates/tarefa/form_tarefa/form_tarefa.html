@@ -1,0 +1,17 @@
+<template name="form_tarefa">
+    <form id="form_tarefa" action="">
+        {{> input_text name="titulo" label="Título" placeholder="Informe o título da tarefa" value=tarefa.titulo}}
+        {{> input_textarea name="descricao" label="Descrição" placeholder="Informe a descrição da tarefa" value=tarefa.descricao}}
+        {{> input_data name="prazo" label="Prazo" placeholder="" value=tarefa.prazo}}
+        {{#if categoriaOptions}}
+            {{> input_select name="categoria" label="Categoria" firstOption="Escolha uma opção" options=categoriaOptions selectedOption=tarefa.categoriaId}}
+        {{/if}}
+        <div>
+            <p>Não encontrou a categoria? Crie uma nova.</p>
+            {{> input_text name="nova_categoria" placeholder="Informe a nova categoria" value=""}}
+        </div>
+        <div class="btn_area">
+            <button class="btn btn-primary" type="submit">Enviar</button>
+        </div>
+    </form>
+</template>

@@ -1,0 +1,13 @@
+<!--
+    Recebe label, name, value e placeholder
+    Exemplo:
+        {{> input_email name="" label="" value=""}}
+-->
+<template name="input_email">
+    <div class="form-group">
+        <label class="form-label" for="{{name}}">{{label}}</label>
+        <input class="form-control input" style="height: 40px" id="{{name}}" name="{{name}}" type="email" minlength="{{validation.min}}" maxlength="{{validation.max}}" value="{{value}}" placeholder="{{placeholder}}" {{disabled}}>
+        <div id="alert_{{name}}" class="alert alert-danger" style="margin: 5px 0px 0px; line-height: 1em; display: none">
+        </div>
+    </div>
+</template>

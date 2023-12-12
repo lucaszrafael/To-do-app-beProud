@@ -1,0 +1,49 @@
+<template name="checklists">
+    <style>
+        #checklists{
+            margin-bottom: 10px;
+        }
+        #lista{
+            padding: 10px;
+            border: 1px solid #ccc;
+        }
+        .remover_item{
+            height: 20px;
+            position: absolute;
+            right: 0;
+        }
+        .item_check{
+            padding: 10px;
+            margin: 5px 10px 5px 0;
+            border-bottom: 1px solid #ccc;
+            width: 100%;
+            position: relative;
+        }
+    </style>
+    <div id="checklists">
+        <h2>Checklists</h2>
+        <form id="form_checklist">
+            {{> input_text name="titulo" placeholder="Digite o item do checklist" value=""}}
+            <div class="btn_area">
+                <button class="btn btn-primary" type="submit">Novo item</button>
+            </div>
+        </form>
+        <div id="lista">
+            {{#each checklists}}
+                <div class="item_check" style="margin: 5px 10px 5px 0">
+                    <div style="display: inline-block">
+                        <input data-id="{{_id}}" class="form-check-input checklist" value="{{value}}" type="checkbox" name="{{_id}}" id="{{_id}}" {{is_checked}} style="display: inline-block">
+                    </div>
+                    <div style="display: inline-block">
+                        <label for="{{_id}}" data-check-value="{{_id}}" style="display: inline-block" class="form-check-label {{name}}">
+                            {{titulo}} <img data-id="{{_id}}" class="remover_item" src="/remover.png" alt="">
+                        </label>
+                    </div>
+                </div>
+            {{else}}
+                <p>Nenhum item adicionado.</p>
+            {{/each}}
+        </div>
+
+    </div>
+</template>

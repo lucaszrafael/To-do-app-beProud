@@ -1,0 +1,5 @@
+import '/collections/anotacoes.js'
+import '/collections/atividades_tarefas.js'
+import '/collections/categorias.js'
+import '/collections/tarefas.js'
+import '/collections/checklists_tarefas.js'

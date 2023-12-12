@@ -1,0 +1,11 @@
+<template name="cadastro">
+    <h1>Cadastro</h1>
+    <form id="form_cadastro" action="">
+        {{> input_email name="email" label="E-mail" placeholder="Informe seu e-mail" value=""}}
+        {{> input_password name="senha" label="Senha" placeholder="Digite sua senha" value=""}}
+        {{> input_password name="confirm_senha" label="Confirme a Senha" placeholder="Informe sua senha" value=""}}
+        <div class="btn_area">
+            <button class="btn btn-primary" type="submit">Enviar</button>
+        </div>
+    </form>
+</template>

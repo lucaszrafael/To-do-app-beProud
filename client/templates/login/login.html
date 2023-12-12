@@ -1,0 +1,15 @@
+<template name="login">
+    <h1>Be Proud</h1>
+    <form id="form_login" action="">
+        {{> input_email name="email" label="E-mail" placeholder="Informe seu e-mail" value=""}}
+        {{> input_password name="senha" label="Senha" placeholder="Informe sua senha" value=""}}
+        <div class="btn_area">
+            <button class="btn btn-success" type="submit">Enviar</button>
+        </div>
+    </form>
+    <div style="margin-top: 10px">
+        <h2>Não tem cadastro?</h2>
+        <button id="btn_cadastro" class="btn btn-primary">Cadastro</button>
+    </div>
+
+</template>

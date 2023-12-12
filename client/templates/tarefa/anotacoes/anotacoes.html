@@ -1,0 +1,49 @@
+<template name="anotacoes">
+    <style>
+        .nota{
+            border-bottom: 1px solid #ccc;
+        }
+        .nota_data{
+            font-weight: bold;
+            margin-top: 10px;
+            text-align: left;
+            margin-right: 10px;
+            padding: 5px;
+            background-color: #eee;
+            font-size: 17px;
+        }
+        .editar_nota{
+            margin-left: 10px;
+        }
+        .editar_nota, .remover_nota{
+            height: 17px;
+            width: 17px;
+        }
+        #form_anotacao{
+            margin-bottom: 10px;
+        }
+    </style>
+    <div>
+        <h2>Anotações</h2>
+        <form id="form_anotacao" action="">
+            {{> input_textarea name="anotacao" value="" cols="" rows="" placeholder="Escreva sua anotação sobre esta tarefa"}}
+            <div class="btn_area">
+                <button class="btn btn-primary" type="submit">Enviar</button>
+            </div>
+        </form>
+        {{> input_text name="pesquisa_notas" placeholder="Encontre uma anotação" value=""}}
+        {{#if anotacoes}}
+            {{#each anotacoes}}
+                <div class="nota">
+                    <div class="nota_data">
+                        {{createdAt}} <img data-id="{{_id}}" class="editar_nota" src="/editar.png" alt=""> <img data-id="{{_id}}" class="remover_nota" src="/remover.png" alt="">
+                    </div>
+                    <p>{{texto}}</p>
+                </div>
+            {{/each}}
+            {{else}}
+            <p>Nenhuma anotação feita.</p>
+        {{/if}}
+
+    </div>
+</template>

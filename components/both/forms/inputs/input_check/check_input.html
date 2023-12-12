@@ -1,0 +1,34 @@
+<!--
+    Imprime um opções de input_check buttons.
+    Recebe @label, que é o título.
+    Recebe uma array com options, representando as opções, que devem conter três variaveis: value, label e name
+    Ex.: {{! check_input label="Label" name="nome_qualquer" options=options}}
+-->
+
+<template name="check_input">
+    {{#if options}}
+        <div class="check_input {{name}}" style="margin-bottom: 5px; padding: 5px 0px; width: 100%">
+            {{#if label}}
+                <div style="font-weight: bold">
+                    {{{label}}}
+                </div>
+                {{#if descricao}}
+                    <div>{{descricao}}</div>
+                {{/if}}
+            {{/if}}
+            {{#each options}}
+                <div class="form-check" style="display: inline-block; margin: 5px 10px 5px 0">
+                    <div style="display: inline-block">
+                        <input class="form-check-input {{class}} {{name}}" value="{{value}}" type="checkbox" name="{{name}}" id="{{value}}" {{checked}} style="{{style}}; display: inline-block">
+                    </div>
+                    <div style="display: inline-block">
+                        <label for="{{value}}" data-check-value="{{value}}" style="display: inline-block" class="form-check-label {{name}}">
+                            {{{label}}}
+                        </label>
+                    </div>
+                </div>
+            {{/each}}
+        </div>
+        <div id="alert_{{name}}" class="alert alert-danger" style="margin: 5px 0px 0px; line-height: 1em; display: none"></div>
+    {{/if}}
+</template>

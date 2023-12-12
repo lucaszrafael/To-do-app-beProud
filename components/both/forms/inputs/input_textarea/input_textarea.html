@@ -1,0 +1,16 @@
+<!--
+    Recebe @label, @name, @rows (opt), @cols (opt) e @value
+    Ex.:
+        {{! input_textarea name="" label="" value="" cols="" rows="" placeholder=""}}
+-->
+
+<template name="input_textarea">
+    <div style="margin-bottom: 10px">
+        {{#if label}}
+            <label class="form-label" for="{{name}}">{{label}}</label>
+        {{/if}}
+        <textarea class="form-control input" id="{{name}}" name="{{name}}" rows="{{rows}}" cols="{{cols}}" placeholder="{{placeholder}}" style="{{style}}" minlength="{{minlength}}" maxlength="{{maxlength}}">{{value}}</textarea>
+        <div id="alert_{{name}}" class="alert alert-danger" style="margin: 5px 0px 0px; line-height: 1em; display: none">
+        </div>
+    </div>
+</template>

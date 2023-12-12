@@ -1,0 +1,29 @@
+<!--
+    Imprime um opções de input_radio buttons.
+    Recebe @label, que é o título.
+    Recebe uma array com options, representando as opções, que devem conter três variaveis: value, label e name
+    Ex.: {{! radio_input label="Label" name="nome_qualquer" options=options checkedOption="1"}}
+-->
+
+<template name="radio_input">
+    <div class="radio_input {{name}} form-group">
+        {{#if label}}
+            <div style="font-weight: bold; margin-bottom: 10px;">
+                {{{label}}}
+            </div>
+        {{/if}}
+        {{#each options}}
+            <div style="display: inline-block; margin-right: 10px">
+                <div style="display: inline-block;">
+                    <input class="{{class}} {{name}}" value="{{value}}" type="radio" style="{{style}}; width: 20px; margin: 0; padding: 0; background-color: blue" name="{{name}}" id="{{value}}" {{checkedOption}}>
+                </div>
+                <div style="display:inline-block;">
+                    <label data-radio-value="{{value}}" class="{{name}}" style="display: inline-block" for="{{value}}">
+                        {{{label}}}
+                    </label>
+                </div>
+              
+            </div>
+        {{/each}}
+    </div>
+</template>

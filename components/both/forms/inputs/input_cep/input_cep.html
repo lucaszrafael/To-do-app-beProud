@@ -1,0 +1,18 @@
+<!--
+    Recebe label, name, value e placeholder
+    Exemplo:
+        {{> input_cep name="" label="" value="" placeholder=""}}
+-->
+<template name="input_cep">
+    <style>
+        #{{name}}{
+            background: url(/images/ico_busca_cinza.svg) no-repeat right 7px 7px;
+        }
+    </style>
+    <div style="padding: 5px 0">
+        <label class="form-label" for="{{name}}">{{label}}</label>
+        <input class="form-control input" id="{{name}}" name="{{name}}" style="{{style}}" type="text" minlength="9" maxlength="9" value="{{value}}" placeholder="{{placeholder}}">
+        <div id="alert_{{name}}" class="alert alert-danger" style="margin: 5px 0px 0px; line-height: 1em; display: none">
+        </div>
+    </div>
+</template>

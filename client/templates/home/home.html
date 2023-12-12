@@ -1,0 +1,47 @@
+<template name="home">
+    <style>
+        .tarefa, .categoria {
+            border: 1px solid #ccc;
+            padding: 10px;
+            margin-bottom: 10px;
+        }
+    </style>
+    <div class="btn_area">
+        <button id="btn_cadastrar_tarefa" class="btn btn-primary" type="submit">Nova tarefa</button>
+    </div>
+    <div>
+        <div>
+            <h2>Lembretes</h2>
+            {{#each lembretes}}
+                <div class="alert alert-warning tarefa" data-id="{{_id}}">
+                    <div>Lembrete: {{titulo}}</div>
+                    <div style="font-weight: bold">{{lembrete}}</div>
+                </div>
+                {{else}}
+                <p>Nenhum lembrete cadastrado.</p>
+            {{/each}}
+        </div>
+        <div id="tarefas">
+            <h2>Tarefas Destaque</h2>
+            {{#each tarefas_prioridade}}
+                <div data-id="{{_id}}" class="tarefa">
+                    {{titulo}}
+                </div>
+                {{else}}
+                <p>Nenhuma tarefa cadastrada.</p>
+            {{/each}}
+        </div>
+        <div id="categorias">
+            <h2>Categorias</h2>
+            {{#each categorias}}
+                <div data-id="{{_id}}" class="categoria">
+                    {{titulo}}
+                </div>
+                {{else}}
+                <p>Nenhuma categoria cadastrada.</p>
+            {{/each}}
+        </div>
+
+    </div>
+
+</template>

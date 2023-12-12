@@ -1,0 +1,13 @@
+
+<!---->
+<template name="list_infos">
+    <div style="display: inline-flex; flex-wrap: wrap">
+        {{#each infos}}
+            {{#if info}}
+                {{> elem_info this}}
+            {{/if}}
+            {{else}}
+            <p>Nenhuma info passada</p>
+        {{/each}}
+    </div>
+</template>

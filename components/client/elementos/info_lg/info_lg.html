@@ -1,0 +1,17 @@
+<template name="info_lg">
+    <style>
+        .elem_info_lg{
+            border-radius: 5px;
+            background-color: #eee;
+            padding: 10px 20px;
+            margin-bottom: 10px;
+        }
+    </style>
+    {{#if info}}
+        <div class="elem_info_lg">
+            <div style="font-weight: bold; text-transform: uppercase">{{titulo}}</div>
+            <div>{{info}}</div>
+        </div>
+    {{/if}}
+
+</template>

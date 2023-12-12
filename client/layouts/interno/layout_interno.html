@@ -1,0 +1,14 @@
+<template name="layout_interno">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+    
+    </style>
+    <body style="padding: 10px;">
+        <div style="height: 60px;">
+            <button id="btn_home" class="btn btn-primary" style="float: left">Início</button>
+            <button id="btn_sair" class="btn btn-danger" style="float: right">Sair</button>
+        </div>
+        {{> yield}}
+    </body>
+</template>

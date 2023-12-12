@@ -1,0 +1,16 @@
+<!--Apresenta um botão de upload de imagem, recebendo label, e dados do modal, como title, content e a ação do after-->
+<!--Exemplo-->
+<!--{{> input_upload_imagem label="Label" modalTitle="" modalContent="" modalAfter=after}}-->
+<!--Exemplo de função after-->
+<!--"modalUploadAfter": () => {
+        return (imagemId) => {
+            let categoriaId = Router.current().getParams().categoriaId
+            CategoriasItensComercio.update({_id: categoriaId}, {$set: {imagemId: imagemId}})
+            Modal.hide()
+        }
+    },-->
+<template name="input_upload_imagem">
+    <div id="btn_upload_imagem" style="padding: 5px; text-align: center; border: 1px solid #eee; width: 150px; border-radius: 5px; margin: 10px auto;">
+       {{label}}
+    </div>
+</template>

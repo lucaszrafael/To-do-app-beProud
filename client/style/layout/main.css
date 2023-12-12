@@ -1,0 +1,12 @@
+.tarefa, .categoria {
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin-bottom: 10px;
+}
+
+.btn_area{
+    padding: 10px;
+    border: 1px solid #eee;
+    text-align: right;
+    margin-bottom: 10px;
+}

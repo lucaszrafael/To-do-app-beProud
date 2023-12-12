@@ -1,0 +1,31 @@
+<!-- 
+    Imprime um select
+    Recebe @name, @label, @options, @selectedOption
+    Exemplo: 
+    {{> input_select name="" label="" options=selectOptions selectedOption=selectedOption}}
+
+    Exemplo de helper
+         "selectOptions": () => {
+            return [
+                {label: "", value: ""},
+                {label: "", value: ""}
+            ]
+        },
+
+-->
+
+<template name="input_select">
+    <div id="input_{{name}}" class="form-group" style="width: 100%; margin: 0px 0px 10px 0px; padding: 0">
+        {{#if label}}
+            <label class="form-label" for="{{name}}">{{label}}</label>
+        {{/if}}
+        <select class="form-control {{name}}" name="{{name}}" id="{{name}}" {{disabled}} style="height: 40px; width: 100%; margin: 0;">
+            <option value="">Escolha uma opção</option>
+            {{#each options}}
+                <option value="{{value}}" {{selected}}>{{label}}</option>
+            {{/each}}
+        </select>
+        <div id="alert_{{name}}" class="alert alert-danger" style="margin: 5px 0px 0px; line-height: 1em; display: none">
+        </div>
+    </div>
+</template>

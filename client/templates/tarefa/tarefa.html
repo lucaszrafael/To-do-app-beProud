@@ -1,0 +1,67 @@
+<template name="tarefa">
+    <style>
+        #area_favoritar{
+            padding: 10px;
+            text-align: right;
+        }
+        .remover_tarefa, .btn_favoritar, .btn_editar{
+            width: 30px;
+            height: 30px;
+            margin-right: 10px;
+        }
+        .acoes{
+            padding: 10px;
+            border: 1px solid #ccc;
+            text-align: right;
+            margin-bottom: 10px;
+        }
+        h2{
+            padding: 10px;
+            border: 1px solid #ccc;
+            font-size: 22px;
+        }
+        #vencimento{
+            padding: 10px;
+            text-align: center;
+            background-color: #eee;
+        }
+
+        #descricao{
+            font-size: 15px;
+            margin: 10px 0;
+            text-align: justify;
+        }
+
+    </style>
+    <h2>{{tarefa.titulo}}</h2>
+    <div class="acoes">
+        {{#if tarefa.prioridade}}
+            <img class="btn_favoritar" src="/gold_star.png" alt="">
+            {{else}}
+            <img class="btn_favoritar" src="/gray_star.png" alt="">
+        {{/if}}
+        <img class="btn_editar" src="/editar.png" alt="">
+        <img class="remover_tarefa" src="/remover.png" alt="">
+    </div>
+    <div id="vencimento">
+        <div>
+            <div>Prazo: {{tarefa.prazo}}</div>
+        </div>
+    </div>
+    {{> cronometro}}
+    <div id="descricao">
+        {{tarefa.descricao}}
+    </div>
+    <div>
+        <h2>Lembrete</h2>
+        <div class="alert alert-info">Escolha o dia para te lembrar desta tarefa</div>
+        <form id="form_lembrete" action="">
+            {{> input_data name="data_lembrete" placeholder="" value=tarefa.lembrete}}
+            <div class="btn_area">
+                <button class="btn btn-primary" type="submit">Enviar</button>
+            </div>
+        </form>
+    </div>
+    {{> checklists}}
+    {{> anotacoes}}
+</template>

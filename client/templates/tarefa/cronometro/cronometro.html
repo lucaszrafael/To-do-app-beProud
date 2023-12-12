@@ -1,0 +1,32 @@
+<template name="cronometro">
+    <style>
+        #tempo_cronometro{
+            text-align: center;
+            font-size: 30px;
+        }
+        #btn_iniciar_cronometro{
+            margin: 10px 0;
+            width: 100%;
+        }
+        #btn_parar_cronometro{
+            margin: 10px 0;
+            width: 100%;
+        }
+    </style>
+
+    <div style="padding: 10px; background-color: #eee">
+        {{#if dedicacao}}
+            <div style="text-align: center">Dedicação: {{dedicacao}}</div>
+        {{/if}}
+
+        {{#if atividade_ativa}}
+            <div id="tempo_cronometro">
+
+            </div>
+            <button data-id="{{atividade_ativa._id}}" id="btn_parar_cronometro" class="btn btn-danger">Parar cronometro!</button>
+        {{else}}
+            <button id="btn_iniciar_cronometro" class="btn btn-success">Iniciar cronometro!</button>
+        {{/if}}
+    </div>
+
+</template>

@@ -1,0 +1,13 @@
+tr:hover{
+    cursor:pointer;
+}
+th{
+    font-size: 16px;
+}
+td{
+    font-size: 16px;
+}
+.busca_planilha{
+    font-size: 20px;
+    padding: 20px 20px;
+}

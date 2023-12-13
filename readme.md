@@ -1,6 +1,6 @@
 # *Tutorial de instalação*
 
-Meteor.js é um framework JavaScript completo que simplifica o desenvolvimento de aplicativos web em tempo real. Neste projeto utilizamos Blaze, que é a biblioteca de template padrão do Meteor.js. O projeto atual utiliza a versão 2.13.3 do Meteor.Js, para tanto é necessário primeiramente fazer a instalação da versão 14.21.3 do Node.JS.
+Meteor.js é um framework JavaScript completo que simplifica o desenvolvimento de aplicativos web em tempo real. Neste projeto utilizamos Blaze, que é a biblioteca de template padrão do Meteor.js. <br>O projeto atual utiliza a versão 2.13.3 do Meteor.Js, para tanto é necessário primeiramente fazer a instalação da versão 14.21.3 do Node.JS.
 
 ## *1.	Instalação do Node.JS*
 **a.**	Acesse a página: [Instalação Node](https://nodejs.org/en/blog/release/v14.21.3)<br>
@@ -22,7 +22,7 @@ Caso o problema persistir, desinstale o node, acesse novamente a página e veja 
 
 # 📁 *Acesso ao projeto*
 
-## *1.	 Configuração do Ambiente de Desenvolvimento*
+## *3.	 Configuração do Ambiente de Desenvolvimento*
 Para uma experiência de desenvolvimento mais eficiente, é recomendável configurar um ambiente de desenvolvimento adequado. Use um editor de código adequado, como o Visual Studio Code, que oferece suporte aprimorado para o desenvolvimento Meteor.
 
 ### *Visual Studio Code*

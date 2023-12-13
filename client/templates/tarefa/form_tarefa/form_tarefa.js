@@ -18,30 +18,48 @@ Template.form_tarefa.helpers({
         t.prazo = moment(t.prazo).format("YYYY-MM-DD")
         return t
     },
+    "local": () => {
+        let local ={
+            latitude: Session.get("latitude"),
+            longitude: Session.get("longitude")
+        }
+
+        console.log("local", local)
+
+        return local
+    },
 });
 
 Template.form_tarefa.events({
+    //Captura o evento de submit do formulário de tarefa
     "submit #form_tarefa": (event, template) => {
         event.preventDefault()
 
+        //Cria um objeto com os dados do formulário
         let form = {
             titulo: $("#titulo").val(),
             descricao: $("#descricao").val(),
             categoriaId: $("#categoria").val(),
             prazo: $("#prazo").val(),
-            nova_categoria: $("#nova_categoria").val()
+            nova_categoria: $("#nova_categoria").val(),
+            local: {
+                latitude: Session.get("latitude"),
+                longitude: Session.get("longitude")
+            }
         }
 
+        //Checa se o título é vazio
         if(!form.titulo){
             window.alert("O título é obrigatório")
             return
         }
 
+        //Checa se a categoria é vazia
         if(!form.categoriaId && !form.nova_categoria){
             window.alert("Selecione uma categoria ou digite uma nova")
             return
         }
-
+        //Se o usuário digitou uma nova categoria, cria a categoria
         if(form.nova_categoria){
             //Checa se a categoria já existe
             let categoria = Categorias.findOne({titulo: form.nova_categoria})
@@ -83,7 +101,36 @@ Template.form_tarefa.onRendered(function () {
 });
 
 Template.form_tarefa.onCreated(function () {
+    if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(function(position) {
 
+            var latitude = position.coords.latitude;
+            var longitude = position.coords.longitude;
+
+            Session.set("latitude", latitude)
+            Session.set("longitude", longitude)
+
+
+
+        }, function(error) {
+            switch (error.code) {
+                case error.PERMISSION_DENIED:
+                    console.error("Usuário negou a solicitação de geolocalização.");
+                    break;
+                case error.POSITION_UNAVAILABLE:
+                    console.error("Informações de localização não disponíveis.");
+                    break;
+                case error.TIMEOUT:
+                    console.error("A solicitação de geolocalização expirou.");
+                    break;
+                case error.UNKNOWN_ERROR:
+                    console.error("Ocorreu um erro desconhecido ao obter a localização.");
+                    break;
+            }
+        });
+    } else {
+        console.error("Geolocalização não é suportada neste navegador.");
+    }
 
 });
 

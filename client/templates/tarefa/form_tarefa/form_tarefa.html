@@ -1,4 +1,11 @@
 <template name="form_tarefa">
+    <style>
+        #local{
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+        }
+    </style>
     <form id="form_tarefa" action="">
         {{> input_text name="titulo" label="Título" placeholder="Informe o título da tarefa" value=tarefa.titulo}}
         {{> input_textarea name="descricao" label="Descrição" placeholder="Informe a descrição da tarefa" value=tarefa.descricao}}
@@ -9,6 +16,17 @@
         <div>
             <p>Não encontrou a categoria? Crie uma nova.</p>
             {{> input_text name="nova_categoria" placeholder="Informe a nova categoria" value=""}}
+        </div>
+        <div id="local">
+            {{#with local}}
+                <div style="font-weight: bold">Esta tarefa está sendo realizada em:</div>
+                <div>Latitude: {{latitude}}</div>
+                <div>Longitude: {{longitude}}</div>
+                {{else}}
+                <div>
+                    Nenhuma localização encontrada.
+                </div>
+            {{/with}}
         </div>
         <div class="btn_area">
             <button class="btn btn-primary" type="submit">Enviar</button>

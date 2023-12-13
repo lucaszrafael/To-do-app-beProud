@@ -7,22 +7,26 @@ Template.anotacao.helpers({
 });
 
 Template.anotacao.events({
+    //Captura o evento de submit do formulário de anotação
     "submit #form_anotacao": (event, template) => {
-        event.preventDefault()
+        event.preventDefault() //Evita que o formulário seja enviado
 
+        //Obtém o valor do campo de anotação
         let texto = $("#texto").val()
         if(!texto) {
             window.alert("Digite uma anotação")
             return
         }
 
+        //Obtém o id da anotação
         let anotacaoId = GetParam('anotacaoId')
         let anotacao = Anotacoes.findOne({_id: anotacaoId})
 
-
+        //Atualiza a anotação no banco de dados
         let result = Anotacoes.update({_id: anotacaoId}, {$set: {texto: texto}})
         if(result){
-            $("#anotacao").val("")
+            $("#anotacao").val("") //Limpa o campo de anotação
+            //Redireciona para a página de tarefa
             Go("tarefa", {tarefaId: anotacao.tarefaId})
         }
     },

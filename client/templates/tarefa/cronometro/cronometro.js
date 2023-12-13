@@ -44,6 +44,7 @@ Template.cronometro.events({
     },
 });
 
+//Ao renderizar o template, atualiza o cronometro a cada segundo
 Template.cronometro.onRendered(function () {
     //Atualiza o cronometro a cada segundo na div #tempo_cronometro com os segundos que se passaram desde a criação da atividade no formato 00:00:00, apresentando os segundos, minutos e horas
     let tarefaId = GetParam('tarefaId')
@@ -51,12 +52,14 @@ Template.cronometro.onRendered(function () {
         let atividade = AtividadesTarefas.findOne({ tarefaId: tarefaId, ativa: true });
         if (!atividade) return;
 
+        //Calcula a diferença entre a data atual e a data de criação da atividade
         let agora = moment();
         let diferenca = moment.duration(agora.diff(atividade.createdAt));
         let horas = pad(diferenca.hours());
         let minutos = pad(diferenca.minutes());
         let segundos = pad(diferenca.seconds());
 
+        //Atualiza o cronometro
         let tempoFormatado = `${horas}:${minutos}:${segundos}`;
         $("#tempo_cronometro").text(tempoFormatado);
     }, 100);

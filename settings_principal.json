@@ -1,0 +1,14 @@
+
+{
+  "login": "meteor login rodrigogpiris -- password c5978287",
+    "setup_texto_para_copiar": "meteor deploy beproud --settings settings_principal.json --owner beproud --free --mongo",
+  "public": {
+    "domain": "beproud.meteorapp.com"
+  },
+  "galaxy.meteor.com": {
+    "env": {
+      "MONGO_URL": "mongodb://beproud:GD3Bd66qSr2gChrNb@SG-galaxycluster-38726.servers.mongodirector.com:27017,SG-galaxycluster-38727.servers.mongodirector.com:27017/beproud-meteorapp-com?replicaSet=RS-galaxycluster-0&ssl=true"
+    }
+  }
+}
+

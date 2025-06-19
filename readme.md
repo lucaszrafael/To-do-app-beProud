@@ -54,3 +54,6 @@ O Meteor usa o npm para gerenciar as dependências do projeto. Para instalar pac
 ```
 meteor npm install nome-do-pacote
 ```
+## *Apresentação do App*
+https://www.canva.com/design/DAF3Vq6tEPQ/lzDCwgd5qcTlLeWqPHmGSA/edit
+
